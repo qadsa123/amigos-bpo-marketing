@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import Image from 'next/image';
+
 
 const inputFieldStyle = {
   padding: '12px',
@@ -266,7 +266,7 @@ export default function HomePage() {
 >
   <h2 style={{ fontSize: '2.5rem', marginBottom: '20px' }}>Contact Us</h2>
   <p style={{ fontSize: '1rem', marginBottom: '40px', maxWidth: '600px', marginInline: 'auto' }}>
-    We'd love to hear from you! Reach out with questions, collaborations, or service inquiries.
+    We&#39;d love to hear from you! Reach out with questions, collaborations, or service inquiries.
   </p>
 
   <form
