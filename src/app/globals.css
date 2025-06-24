@@ -26,13 +26,17 @@ body {
 }
 
 
-/* Hide hamburger by default */
-.hamburger {
-  display: none;
+/* globals.css or inside a <style> tag */
+@media (min-width: 768px) {
+  .hamburger {
+    display: none !important;
+  }
+  .desktop-nav {
+    display: flex !important;
+  }
 }
 
-/* Hide desktop nav on small screens */
-@media (max-width: 768px) {
+@media (max-width: 767px) {
   .desktop-nav {
     display: none !important;
   }

@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 
 const inputFieldStyle = {
@@ -21,9 +21,17 @@ const navLink = {
   cursor: 'pointer',
 };
 
+
 export default function HomePage() {
   const [menuOpen, setMenuOpen] = useState(false);
+const [isMobile, setIsMobile] = useState(false);
 
+useEffect(() => {
+  const checkMobile = () => setIsMobile(window.innerWidth < 768);
+  checkMobile(); // check initially
+  window.addEventListener('resize', checkMobile); // listen to window resize
+  return () => window.removeEventListener('resize', checkMobile); // clean up
+}, []);
   return (
     <>
       {/* Responsive Header */}
@@ -59,11 +67,12 @@ export default function HomePage() {
         </nav>
 
         {/* Hamburger for mobile */}
+        
         <div
           onClick={() => setMenuOpen(!menuOpen)}
           style={{
             cursor: 'pointer',
-            display: 'none',
+            display: 'flex',
             flexDirection: 'column',
             gap: '4px',
           }}
@@ -73,27 +82,37 @@ export default function HomePage() {
           <span style={{ width: '25px', height: '3px', background: '#264653' }}></span>
           <span style={{ width: '25px', height: '3px', background: '#264653' }}></span>
         </div>
+       
       </header>
 
       {/* Mobile Menu */}
-      {menuOpen && (
-        <div style={{
-          backgroundColor: '#ffffff',
-          display: 'flex',
-          flexDirection: 'column',
-          alignItems: 'center',
-          gap: '20px',
-          padding: '20px',
-          boxShadow: '0 4px 12px rgba(0, 0, 0, 0.05)',
-        }}
-        >
-          <a href="#services" style={navLink}>Services</a>
-          <a href="#about" style={navLink}>About</a>
-          <a href="#contact" style={navLink}>Contact</a>
-        </div>
-      )}
+        {menuOpen && (
+          
+  <div
+    style={{
+      position: 'fixed',     
+      top: '64px',           
+      left: 0,
+      right: 0,
+      backgroundColor: '#ffffff',
+      padding: '12px 0',
+      borderBottom: '1px solid #ccc',
+      boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)',
+      zIndex: 999,
+      display: 'flex',
+      justifyContent: 'center',
+      gap: '30px',
+    }}
+    className="mobile-menu"
+  >
+    <a href="#services" style={navLink}>Services</a>
+    <a href="#about" style={navLink}>About</a>
+    <a href="#contact" style={navLink}>Contact</a>
+  </div>
+)}
 
-      {/* 🔹 Main site sections */}
+
+      {/* Main site sections */}
       
     <main style={{ fontFamily: 'Arial, sans-serif' }}>
       {/* Hero Section */}
