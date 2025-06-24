@@ -67,7 +67,7 @@ useEffect(() => {
         </nav>
 
         {/* Hamburger for mobile */}
-        
+        {isMobile && (
         <div
           onClick={() => setMenuOpen(!menuOpen)}
           style={{
@@ -82,6 +82,7 @@ useEffect(() => {
           <span style={{ width: '25px', height: '3px', background: '#264653' }}></span>
           <span style={{ width: '25px', height: '3px', background: '#264653' }}></span>
         </div>
+        )}
        
       </header>
 
