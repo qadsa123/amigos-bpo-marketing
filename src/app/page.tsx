@@ -119,33 +119,64 @@ useEffect(() => {
       {/* Hero Section */}
       <section
   style={{
-    background: 'linear-gradient(to right, #2A9D8F, #21867A)',
-    color: 'white',
-    padding: '120px 20px 100px',
+    position: 'relative',
+    height: '75vh', // ⬅️ adjusted from 100vh
+    display: 'flex',
+    flexDirection: 'column',
+    justifyContent: 'center',
+    alignItems: 'center',
     textAlign: 'center',
+    color: 'white',
+    overflow: 'hidden',
   }}
 >
-  <h1 style={{ fontSize: '3rem', fontWeight: 'bold' }}>
-    Outsourcing That Works for You
-  </h1>
-  <p style={{ fontSize: '1.2rem', marginTop: '20px' }}>
-    High-performance marketing, support, and operations — done for you.
-  </p>
-  <button
+  {/* Background Image */}
+  <div
     style={{
-      marginTop: '30px',
-      backgroundColor: '#F4A261',
-      border: 'none',
-      padding: '12px 24px',
-      fontSize: '1rem',
-      borderRadius: '6px',
-      color: 'white',
-      cursor: 'pointer',
+      position: 'absolute',
+      inset: 0,
+      backgroundImage: 'url("/hero.webp")',
+      backgroundSize: 'cover',
+      backgroundPosition: 'center',
+      zIndex: 0,
     }}
-  >
-    Get Started
-  </button>
+  />
+
+  {/* Dark Overlay */}
+  <div
+    style={{
+      position: 'absolute',
+      inset: 0,
+      backgroundColor: 'rgba(0,0,0,0.4)',
+      zIndex: 1,
+    }}
+  />
+
+  {/* Text Content */}
+  <div style={{ position: 'relative', zIndex: 2, padding: '0 20px' }}>
+    <h1 style={{ fontSize: '3rem', fontWeight: 'bold' }}>
+      Outsourcing That Works for You
+    </h1>
+    <p style={{ fontSize: '1.2rem', marginTop: '20px' }}>
+      High-performance marketing, support, and operations — done for you.
+    </p>
+    <button
+      style={{
+        marginTop: '30px',
+        backgroundColor: '#F4A261',
+        border: 'none',
+        padding: '12px 24px',
+        fontSize: '1rem',
+        borderRadius: '6px',
+        color: 'white',
+        cursor: 'pointer',
+      }}
+    >
+      Get Started
+    </button>
+  </div>
 </section>
+
 
       
 
